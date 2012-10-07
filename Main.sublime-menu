@@ -1,0 +1,18 @@
+[
+    {
+        "id": "edit",
+        "children":
+        [
+            {
+                "id": "convert_case",
+                "children":
+                [
+                    {
+                        "caption": "Smart Title Case",
+                        "command": "smart_title_case"
+                    }
+                ]
+            }
+        ]
+    }
+]
