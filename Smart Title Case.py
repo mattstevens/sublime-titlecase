@@ -1,5 +1,9 @@
 import sublime, sublime_plugin
-from titlecase import titlecase
+
+try:
+    from .titlecase import titlecase
+except ValueError:
+    from titlecase import titlecase
 
 class SmartTitleCaseCommand(sublime_plugin.TextCommand):
     def run(self, edit):
