@@ -12,7 +12,7 @@ import re
 __all__ = ['titlecase']
 __version__ = '0.5.1'
 
-SMALL = 'a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|v\.?|via|vs\.?'
+SMALL = r'a|an|and|as|at|but|by|en|for|if|in|of|on|or|the|to|v\.?|via|vs\.?'
 PUNCT = r"""!"#$%&'‘()*+,\-./:;?@[\\\]_`{|}~"""
 
 SMALL_WORDS = re.compile(r'^(%s)$' % SMALL, re.I)
@@ -39,7 +39,7 @@ def titlecase(text):
     the New York Times Manual of Style, plus 'vs' and 'v'.
 
     """
-    
+
     lines = re.split('[\r\n]+', text)
     processed = []
     for line in lines:
@@ -53,7 +53,7 @@ def titlecase(text):
                     continue
                 else:
                     word = word.lower()
-            
+
             if APOS_SECOND.match(word):
                 word = word.replace(word[0], word[0].upper())
                 word = word.replace(word[2], word[2].upper())
@@ -71,12 +71,12 @@ def titlecase(text):
                 tc_line.append("%s%s" % (match.group(1).capitalize(),
                                       match.group(2).capitalize()))
                 continue
-            
+
             hyphenated = []
             for item in word.split('-'):
                 hyphenated.append(CAPFIRST.sub(lambda m: m.group(0).upper(), item))
             tc_line.append("-".join(hyphenated))
-        
+
 
         result = " ".join(tc_line)
 
@@ -91,8 +91,7 @@ def titlecase(text):
             m.group(1),
             m.group(2).capitalize()
         ), result)
-        
+
         processed.append(result)
 
     return "\n".join(processed)
-
