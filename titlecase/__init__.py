@@ -25,7 +25,7 @@ SUBPHRASE = re.compile(r'([:.;?!][ ])(%s)' % SMALL)
 APOS_SECOND = re.compile(r"^[dol]{1}['‘]{1}[a-z]+$", re.I)
 ALL_CAPS = re.compile(r'^[A-Z\s%s]+$' % PUNCT)
 UC_INITIALS = re.compile(r"^(?:[A-Z]{1}\.{1}|[A-Z]{1}\.{1}[A-Z]{1})+$")
-MAC_MC = re.compile(r"^([Mm]a?c)(\w+)")
+MAC_MC = re.compile(r"^([Mm]a?c(?=allen|alpin|arthur|cain|carthy|cartney|clellan|clintock|connell|cormack|cormick|court|coy|cullers|culloch|cullough|donald|donnell|enroe|govern|graw|guffey|guffin|gwire|gyver|job|keesport|kenna|kinley|kuen|lean|leish|luhan|master|minnville|murtry|namara|neil|phee|reynolds))(\w+)")
 
 def titlecase(text):
 
